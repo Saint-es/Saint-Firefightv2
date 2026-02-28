@@ -5,6 +5,27 @@ Config.Framework = {
     FireJobName = "fire"
 }
 
+
+Config.WaterSystem = {
+    AuthorizedVehicles = {
+        ['firetruk'] = {
+            maxWater = 2000,
+            hasPump = true,
+            hasFoam = true
+        },
+        ['firetruk2'] = {
+            maxWater = 2500,
+            hasPump = true,
+            hasFoam = true
+        },
+        ['bfire'] = {
+            maxWater = 1000,
+            hasPump = true,
+            hasFoam = false
+        }
+    }
+}
+
 -- Inventory Item Names
 Config.Items = {
     HazmatSuit = "hazmat_suit",
