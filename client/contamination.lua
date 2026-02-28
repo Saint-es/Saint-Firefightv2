@@ -11,3 +11,13 @@ RegisterNetEvent("fire:client:chemicalDamage", function()
     })
 
 end)
+
+RegisterNetEvent("fire:client:contaminated", function()
+
+    lib.notify({
+        title = "Contamination Spread",
+        description = "You have been contaminated!",
+        type = "warning"
+    })
+
+end)
