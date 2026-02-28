@@ -39,3 +39,34 @@ CreateThread(function()
 
     end
 end)
+
+CreateThread(function()
+    while true do
+        Wait(5000)
+
+        for src,_ in pairs(ContaminatedPlayers) do
+
+            local ped = GetPlayerPed(src)
+            if not ped then goto continue end
+
+            local coords = GetEntityCoords(ped)
+
+            for _,target in pairs(GetPlayers()) do
+                if target ~= src then
+
+                    local tPed = GetPlayerPed(target)
+                    local tCoords = GetEntityCoords(tPed)
+
+                    if #(coords - tCoords) < 3.0 then
+                        ContaminatedPlayers[target] = true
+                        TriggerClientEvent("fire:client:contaminated", target)
+                    end
+
+                end
+            end
+
+            ::continue::
+        end
+
+    end
+end)
