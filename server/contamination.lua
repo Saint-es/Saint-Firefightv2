@@ -70,3 +70,12 @@ CreateThread(function()
 
     end
 end)
+
+RegisterNetEvent("fire:server:decontaminate", function()
+    local src = source
+
+    if ContaminatedPlayers[src] then
+        ContaminatedPlayers[src] = nil
+        TriggerClientEvent("fire:client:decontaminated", src)
+    end
+end)
