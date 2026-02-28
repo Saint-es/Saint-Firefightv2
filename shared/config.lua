@@ -84,3 +84,8 @@ Config.FireTypes = {
         spreadRate = 2.0
     }
 }
+
+Config.Decontamination = {
+    Location = vector3(1200.0, -1500.0, 34.0),
+    Radius = 3.0
+}
