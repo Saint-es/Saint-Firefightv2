@@ -26,6 +26,13 @@ Config.WaterSystem = {
     }
 }
 
+
+Config.Wildfire = {
+    BulldozerModel = "bulldozer",
+    FirebreakRadius = 6.0,
+    SpreadReduction = 0.5
+}
+
 -- Inventory Item Names
 Config.Items = {
     HazmatSuit = "hazmat_suit",
