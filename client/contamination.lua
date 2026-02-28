@@ -21,3 +21,20 @@ RegisterNetEvent("fire:client:contaminated", function()
     })
 
 end)
+
+CreateThread(function()
+    while true do
+        Wait(1000)
+
+        local ped = PlayerPedId()
+        local coords = GetEntityCoords(ped)
+
+        if #(coords - Config.Decontamination.Location) < Config.Decontamination.Radius then
+
+            if Contaminated then
+                TriggerServerEvent("fire:server:decontaminate")
+            end
+
+        end
+    end
+end)
