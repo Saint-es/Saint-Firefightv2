@@ -28,3 +28,27 @@ RegisterNetEvent("fire:client:showIncidents", function(incidents)
     lib.showContext('incident_list')
 
 end)
+
+function OpenUpgradeMenu()
+
+    local options = {}
+
+    for name,data in pairs(Config.Upgrades) do
+        table.insert(options, {
+            title = name,
+            description = "Cost: $"..data.cost,
+            onSelect = function()
+                TriggerServerEvent("fire:server:buyUpgrade", name)
+            end
+        })
+    end
+
+    lib.registerContext({
+        id = 'upgrade_menu',
+        title = 'Station Upgrades',
+        options = options
+    })
+
+    lib.showContext('upgrade_menu')
+
+end
