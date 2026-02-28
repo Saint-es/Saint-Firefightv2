@@ -54,3 +54,34 @@ RegisterNetEvent("fire:server:generateArsonCase", function(fireId, suspect)
     })
 
 end)
+
+
+RegisterNetEvent("fire:server:interrogateSuspect", function(caseId)
+
+    local src = source
+    local result = MySQL.single.await("SELECT * FROM fire_arson_cases WHERE id = ?", { caseId })
+    if not result then return end
+
+    local confessionChance = result.evidence_score / 100
+
+    if math.random() < confessionChance then
+
+        MySQL.update("UPDATE fire_arson_cases SET confession = 1 WHERE id = ?", { caseId })
+
+        TriggerClientEvent("ox_lib:notify", src, {
+            title = "Interrogation",
+            description = "Suspect confessed!",
+            type = "success"
+        })
+
+    else
+
+        TriggerClientEvent("ox_lib:notify", src, {
+            title = "Interrogation",
+            description = "Suspect denied all charges.",
+            type = "error"
+        })
+
+    end
+
+end)
