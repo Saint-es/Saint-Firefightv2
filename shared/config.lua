@@ -89,3 +89,18 @@ Config.Decontamination = {
     Location = vector3(1200.0, -1500.0, 34.0),
     Radius = 3.0
 }
+
+Config.Upgrades = {
+    WaterCapacity = {
+        cost = 50000,
+        maxLevel = 3
+    },
+    ResponseTime = {
+        cost = 75000,
+        maxLevel = 3
+    },
+    InvestigationEfficiency = {
+        cost = 60000,
+        maxLevel = 3
+    }
+}
