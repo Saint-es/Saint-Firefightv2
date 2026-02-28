@@ -40,3 +40,23 @@ CreateThread(function()
     Wait(2000)
     LoadUpgrades()
 end)
+
+RegisterNetEvent("fire:server:buyUpgrade", function(name)
+
+    local src = source
+
+    if PurchaseUpgrade(name) then
+        TriggerClientEvent("ox_lib:notify", src, {
+            title = "Upgrade Purchased",
+            description = name.." upgraded!",
+            type = "success"
+        })
+    else
+        TriggerClientEvent("ox_lib:notify", src, {
+            title = "Upgrade Failed",
+            description = "Insufficient funds or max level reached.",
+            type = "error"
+        })
+    end
+
+end)
