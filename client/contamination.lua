@@ -38,3 +38,14 @@ CreateThread(function()
         end
     end
 end)
+
+
+RegisterNetEvent("fire:client:decontaminated", function()
+
+    lib.notify({
+        title = "Decontamination",
+        description = "You are now clean.",
+        type = "success"
+    })
+
+end)
